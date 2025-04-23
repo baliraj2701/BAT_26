@@ -12,6 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nopComPageObject.AdminPage;
+import nopComPageObject.VendorsPage;
 import utilitypackage.ReadConfig;
 
 public class StepDefination extends BaseClass {
@@ -74,6 +75,35 @@ public class StepDefination extends BaseClass {
 	@Then("User close broser")
 	public void user_close_broser() {
 	  driver.quit();
+	}
+	
+	//vendors
+	
+	@When("User click on customers menu")
+	public void user_click_on_customers_menu() {
+	    vendors=new VendorsPage(driver);
+	    vendors.clickOnCustomerMenu();
+	}
+
+	@When("User click on vendors item")
+	public void user_click_on_vendors_item() {
+	  vendors.clickOnVendorItem();
+	}
+
+	@Then("User see vendors page")
+	public void user_see_vendors_page() {
+	  Assert.assertEquals(vendors.getPageTitle(),"Vendors / nopCommerce administration");
+	}
+
+	@When("User enter vendor name as {string} and email as {string}")
+	public void user_enter_vendor_name_as_and_email_as(String vName, String VEmail) {
+	  vendors.searchVendorName(vName);
+	  vendors.searchVendorEmail(VEmail);
+	}
+
+	@When("User click on search button")
+	public void user_click_on_search_button() {
+	   vendors.clickOnSearchButton();
 	}
 	
 	@After
