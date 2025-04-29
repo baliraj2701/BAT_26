@@ -1,6 +1,7 @@
 package stepspackage;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,6 +12,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import nopComPageObject.AddNewCustomerPage;
 import nopComPageObject.AdminPage;
 import nopComPageObject.VendorsPage;
 import utilitypackage.ReadConfig;
@@ -105,6 +107,70 @@ public class StepDefination extends BaseClass {
 	public void user_click_on_search_button() {
 	   vendors.clickOnSearchButton();
 	}
+	
+	//Add new customer
+	
+	@Then("User can view Dashboard")
+	public void user_can_view_dashboard() throws InterruptedException {
+		addCust=new AddNewCustomerPage(driver);
+		   Assert.assertEquals("Dashboard / nopCommerce administration",addCust.getPageTitle());
+		    Thread.sleep(2000);
+	}
+
+	@When("user click on customers menu")
+	public void user_click_on_customers_menuu() throws Exception {
+		 addCust.clickOnCustomesMenu();
+		    Thread.sleep(2000);
+	}
+
+	@When("User click on customers menu item")
+	public void user_click_on_customers_menu_item() throws InterruptedException {
+		 addCust.clickOnCustomesMenuItem();
+		    Thread.sleep(2000);
+	}
+
+	@When("User click on new add button")
+	public void user_click_on_new_add_button() throws Exception {
+		addCust.clickOnAddNew();
+	    Thread.sleep(2000);
+	}
+
+	@Then("User can view add new customer page")
+	public void user_can_view_add_new_customer_page() throws Exception {
+		 Thread.sleep(2000);
+	       Assert.assertEquals("Add a new customer / nopCommerce administration", addCust.getPageTitle());
+	}
+
+	@When("user enter customer info as {string} and {string} and {string} and {string} and {string} and {string} and {string}")
+	public void user_enter_customer_info_as_and_and_and_and_and_and(String newEmail, String NewPassword, String firstName, String lastName, String gender, String compName, String adminComment) throws Exception {
+		 addCust.SetEmail(newEmail);
+		  addCust.SetPassword(NewPassword);
+		  addCust.SetFirstName(firstName);
+		  addCust.SetLastName(lastName);
+		  addCust.SetGender(gender);
+		//  addCust.enterDob("6/13/1988");
+		//  addCust.enterManagerOfVendor("Vendor 1");
+		  addCust.SetCompanyName(compName);
+		  addCust.SetAdminContent(adminComment);
+		    Thread.sleep(2000);
+	}
+
+	@When("user click on save button")
+	public void user_click_on_save_button() {
+		   addCust.clickOnSave();
+	}
+
+	@Then("User can view confirmation msg {string}")
+	public void user_can_view_confirmation_msg(String string) throws Exception {
+		 Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("The new customer has been added successfully."));
+		    Thread.sleep(2000);
+	}
+	
+	@Then("close browser")
+	public void close_browser() {
+       driver.quit();
+	}
+
 	
 	@After
 	public void captureScreenshot() {
