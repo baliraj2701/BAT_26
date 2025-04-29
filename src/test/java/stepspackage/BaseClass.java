@@ -17,5 +17,5 @@ public class BaseClass {
 	 
 	 VendorsPage vendors;
 	 
-	 AddNewCustomerPage addNewCust;
+	 AddNewCustomerPage addCust;
 }

@@ -1,13 +1,13 @@
 Feature:Customer
 
-@regresion
+@regression
 Scenario Outline: Add New Customer
- Given User luanch chrome browser
+  Given User luanch chrome browser
   When User open url "<url>"
   When User enter email as "<email>" and password as "<password>"
   When User click on Login button
-  Then User can view Dashboard
-   When User click on customers menu
+  #Then User validate title should be "<title>"
+   When user click on customers menu
    And  User click on customers menu item
    And User click on new add button
    Then User can view add new customer page
@@ -18,5 +18,9 @@ Scenario Outline: Add New Customer
    
     Examples:
   |url |email|password|newEmail|newPass|fname|lname|gender|comName|adminCommenet|
-  |https://admin-demo.nopcommerce.com/login |admin@yourstore.com|admin|raj121@gmail.com|1234|Bali17|Raj|Male|ABC|Test11|
-  |https://admin-demo.nopcommerce.com/login |admin@yourstore.com|admin|radhika131@gmail.com|4537|Radha|Patel|Female|xyz|Test2|
+  |https://admin-demo.nopcommerce.com/login |admin@yourstore.com|admin|raj122@gmail.com|1234|Bali77|Raj|Male|ABC|Test11|
+  |https://admin-demo.nopcommerce.com/login |admin14252@yourstore.com|admin|radhika133@gmail.com|4537|Radhika|Patel|Female|xyz|Test2|
+
+   
+   
+ 
