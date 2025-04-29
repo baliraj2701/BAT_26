@@ -106,6 +106,52 @@ public class StepDefination extends BaseClass {
 	   vendors.clickOnSearchButton();
 	}
 	
+	//Add new customer
+	
+	@Then("User can view Dashboard")
+	public void user_can_view_dashboard() {
+	    
+	}
+
+	@When("User click on customers menu item")
+	public void user_click_on_customers_menu_item() {
+
+	}
+
+	@When("User click on new add button")
+	public void user_click_on_new_add_button() {
+	   
+	}
+
+	@Then("User can view add new customer page")
+	public void user_can_view_add_new_customer_page() {
+	  
+	}
+
+	@When("user enter customer info as {string} and {string} and {string} and {string} and {string} and {string} and {string}")
+	public void user_enter_customer_info_as_and_and_and_and_and_and(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+	  
+	}
+
+	@When("user click on save button")
+	public void user_click_on_save_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("User can view confirmation msg {string}")
+	public void user_can_view_confirmation_msg(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("close browser")
+	public void close_browser() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	
 	@After
 	public void captureScreenshot() {
 		System.out.println("We can write code to capture to screenshot of failed scenarion");
